@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Movie Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Movie Explorer is a web application that allows users to search and filter a list of movies by title, rating, and category. The frontend is built using React.js, and the backend is powered by Django. This application demonstrates how to integrate React with Django and provides a simple user interface for movie exploration.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Search Movies:** Users can search movies by title.
+- **Filter by Rating and Category:** Users can filter movies based on their rating and category.
+- **Responsive Design:** The frontend is styled using CSS for a clean and modern look.
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend:** React.js, located in the `movie-explorer-frontend` directory.
+- **Backend:** Django, located in the `movie_explorer` directory.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation and Setup
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js and npm (for the React frontend)
+- Python 3 (for the Django backend)
 
-### `npm run build`
+### Backend Setup (Django)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/<your-username>/<repo-name>.git
+    cd <repo-name>
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Navigate to the backend directory:
+    ```bash
+    cd movie_explorer
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Run the Django development server:
+    ```bash
+    python manage.py runserver
+    ```
 
-### `npm run eject`
+The Django server will start at `http://localhost:8000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend Setup (React)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Navigate to the frontend directory:
+    ```bash
+    cd ../movie-explorer-frontend
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Install the required Node.js packages:
+    ```bash
+    npm install
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Start the React development server:
+    ```bash
+    npm start
+    ```
 
-## Learn More
+The React app will start at `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Accessing the Application
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Once both servers are running:
 
-### Code Splitting
+- **Frontend:** Navigate to `http://localhost:3000` to view the React frontend.
+- **Backend:** The backend API can be accessed at `http://localhost:8000/api/`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Notes
 
-### Analyzing the Bundle Size
+- Ensure that the React app is correctly proxying API requests to the Django backend. The proxy configuration should be set in the `package.json` of the React app:
+    ```json
+    "proxy": "http://localhost:8000"
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- You can modify the movie data in the `movies/data.py` file within the Django app.
